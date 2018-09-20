@@ -2,11 +2,16 @@
 import prototype from '../utils/prototype'
 import filter from '../utils/filter'
 import directive from '../utils/directive'
+import utils from '../utils/utils'
 
 const install = function(Vue) {
 
     Object.keys(prototype).forEach(keys => {
         Vue.prototype[keys] = prototype[keys]
+    });
+
+    Object.keys(utils).forEach(keys => {
+        Vue.prototype[`$${keys}`] = utils[keys]
     });
 
 	Vue.use(filter);

@@ -57,6 +57,4 @@ prototype.$numberValidate = function (number) {
 };
 
 
-
-
 export default prototype;
