@@ -1,8 +1,14 @@
-//utils
+/**
+ * @Description: utils函数
+ * @author ganfubin 1209711358@qq.com
+ * @date 18/9/23
+*/
 
 
 /**
  * 数组去重
+ * @param uniqueArr
+ * @returns {*}
  */
 const unique = (uniqueArr) => {
     let resultArr = [];
@@ -21,10 +27,12 @@ const unique = (uniqueArr) => {
     }
 };
 
-/*
- * 数组扁平化
- * */
 
+/**
+ * 数组扁平化
+ * @param flattenArr
+ * @returns {Array}
+ */
 const flatten = (flattenArr) => {
     let resultArr = [];
     if (isArray(flattenArr)) {
@@ -41,10 +49,12 @@ const flatten = (flattenArr) => {
     }
 };
 
+
 /**
  * 判断是不是数组
+ * @param arr
+ * @returns {boolean}
  */
-
 const isArray = (arr) => {
     if (Object.prototype.toString.call(arr) === '[object Array]') {
         return true
@@ -53,10 +63,12 @@ const isArray = (arr) => {
     }
 };
 
-/**
- * 判断是不是对象
- */
 
+/**
+ * 判断是否是对象
+ * @param obj
+ * @returns {boolean}
+ */
 const isObject = (obj) => {
     if (Object.prototype.toString.call(obj) === '[object object]') {
         return true
@@ -66,11 +78,10 @@ const isObject = (obj) => {
 };
 
 /**
- * todo 函数没有考虑完整
- * 判断是否为空
- * 可判断object array
+ * 判断是否是空
+ * @param value
+ * @returns {boolean}
  */
-
 const isEmpty = (value) => {
     if(isObject(value) && Object.keys(value).length > 0){
         return false

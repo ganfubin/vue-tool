@@ -1,8 +1,14 @@
+/**
+ * @Description: 入口文件
+ * @author ganfubin 1209711358@qq.com
+ * @date 18/9/23
+*/
 
 import prototype from '../utils/prototype'
 import filter from '../utils/filter'
 import directive from '../utils/directive'
 import utils from '../utils/utils'
+
 
 const install = function(Vue) {
 
