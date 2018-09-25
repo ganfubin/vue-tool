@@ -49,6 +49,34 @@ const flatten = (flattenArr) => {
     }
 };
 
+/**
+ * 或者对象值，该方法用于校验
+ * @param object
+ * @param path
+ * @returns {*}
+ */
+function getValue(object, path) {
+    let result;
+    //函数针对对象或者数组
+    let type = Object.prototype.toString.call(object);
+    let data = object;
+
+    if(type === '[object Array]' || type === '[object Object]'){
+        result = data;
+        let key = path.match(/\w/g) || [];
+        let index = 0;
+        while(result && index < key.length){
+            result = result[key[index]];
+            index++;
+        }
+        result = (index == key.length) ? result : undefined
+
+    }
+
+    return result
+
+}
+
 
 /**
  * 判断是不是数组
@@ -102,5 +130,6 @@ const isEmpty = (value) => {
 export default {
     unique,
     flatten,
-    isEmpty
+    getValue,
+    isEmpty,
 }
