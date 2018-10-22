@@ -4,6 +4,10 @@
  * @param options
  */
 
+const _option = {
+    title: ''
+};
+
 
 /**
  * 支持这五种常见的写法
@@ -18,7 +22,7 @@ const _head = {
      */
     title(title) {
         if (Object.prototype.toString.call(title) === '[object String]') {
-            window.document.title = title;
+            window.document.title = title || _option.title;
         }
     },
     /**
@@ -71,6 +75,8 @@ const vueHead = (Vue, options) => {
 const init = () => {
     let head = (typeof this.$option.head === 'function' ? this.$option.head.call(this) : this.$option.head);
     if (!head) return;
+    _option.title = window.document.title;
+    getDefaultOption();
     Object.keys(head).forEach((key) => {
         let prop = head[key];
         prop && (_head[key].call(this, prop));
@@ -86,6 +92,14 @@ const destroy = () => {
         let prop = head[key];
         prop && (_head[key].call(this, getDataType(prop)));
     })
+};
+
+/**
+ * 获取默认数据
+ */
+const getDefaultOption = () => {
+    _option.title = window.document.title;
+
 };
 
 /**
