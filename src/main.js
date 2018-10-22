@@ -8,6 +8,8 @@ import prototype from '../utils/prototype'
 import filter from '../utils/filter'
 import directive from '../utils/directive'
 import utils from '../utils/utils'
+import head from '../mixin/head'
+
 
 
 const install = function(Vue) {
@@ -22,7 +24,9 @@ const install = function(Vue) {
 
 	Vue.use(filter);
 
-	Vue.use(directive)
+	Vue.use(directive);
+
+    Vue.use(head);
 };
 
 // 通过外链的形式
